@@ -1,7 +1,12 @@
+from django.contrib import admin
 from django.urls import path
-from . import views
+from base import views
 
 
-urlpatterns = [
-    path('', views.home)
+urlpatterns = [ 
+    path('', views.home),
+    path('hello-world/', views.helloworld),
+    path('hello-world/<int:helloid>', views.innerhello),
+    path('hello-world/<allid>', views.allhello),
+    path('about-us/', views.aboutus)
 ]

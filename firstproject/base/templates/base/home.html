@@ -1,6 +1,56 @@
-{% load static %}
-<link herf="{% static '/css/main.css' %}" rel="stylesheet" type="text/css">
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Hello World</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{tittle}}</title>
+    {% load static %}
+    <link herf="{% static '/css/main.css' %}" rel="stylesheet" type="text/css">
+</head>
 
-<img src="{% static 'images/osmosis' %}" alt="">
+<body>
+    <h1>{{trial}}</h1>
+    <h1>{{list}}</h1>
+    <!--using forloop-->
+    {% for n in list %}
+    <h1>{{n}}</h1>
+    {% endfor %}
+    <!--using forloop.counter in loop-->
+    {% for n in list %}
+    <h1>{{forloop.counter}} {{n}}</h1>
+    {% endfor %}
+    <!--using forloop.revcounter in loop-->
+    {% for n in list %}
+    <h1>{{forloop.revcounter}} {{n}}</h1>
+    {% endfor %}
+    <!--using forloop.revcounter0 in loop-->
+    {% for n in list %}
+    <h1>{{forloop.revcounter0}} {{n}}</h1>
+    {% endfor %}
+    <!--using forloop.last in loop-->
+    {% for n in list %}
+    <h1>{{forloop.last}} {{n}}</h1>
+    {% endfor %}
+
+    <br>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>name</th>
+            <th>class</th>
+        </tr>
+        {% for d in contact %}
+        <tr>
+            <th>{{d.name}}</th>
+            <th>{{d.class}}</th>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- <img src="{% static 'my_app/example.jpg' %}" alt="My image"> -->
+    <img src="{% static 'images/osmosis' %}" alt="">
+</body>
+
+</html>
