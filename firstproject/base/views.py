@@ -14,7 +14,9 @@ def home(request):
         'contact': [
             {'name': 'aman', 'class': '11'},
             {'name': 'rohit', 'class': '12'}
-        ]
+        ],
+        
+        'numbers': [22, 44, 35, 46, 86]
     }
     return render(request, "base/home.html", data)
 
@@ -30,3 +32,6 @@ def allhello(request, allid):
 
 def aboutus(request):
     return render(request, "base/about.html")
+
+def services(request):
+    return render(request, "base/services.html")

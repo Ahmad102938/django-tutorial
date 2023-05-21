@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{tittle}}</title>
-    {% load static %}
-    <link herf="{% static '/css/main.css' %}" rel="stylesheet" type="text/css">
-</head>
+{% extends 'base/base.html' %} {% block content %}
 
 <body>
     <h1>{{trial}}</h1>
@@ -49,8 +39,11 @@
         {% endfor %}
     </table>
 
-    <!-- <img src="{% static 'my_app/example.jpg' %}" alt="My image"> -->
-    <img src="{% static 'images/osmosis' %}" alt="">
-</body>
+    {% if numbers|length > 0 %} {% for n in numbers %} {% if n > 40 %}
+    <div>{{n}}</div>
+    {% endif %} {% endfor %} {% else %} no data found {% endif %}
+    <img src="static/images/Osmosis.jpg" alt="">
 
-</html>
+
+</body>
+{% endblock %}
